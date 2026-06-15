@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 24th Birthday, Ningsih! 🎀</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400&display=swap');
+        body { background: #fff5f7; font-family: 'Poppins', sans-serif; color: #7a6e6e; overflow-x: hidden; }
+        .pink-bg { background: linear-gradient(135deg, #ffd1dc, #fff0f5); }
+        .font-script { font-family: 'Dancing Script', cursive; }
+        .slide { display: none; height: 100vh; flex-direction: column; justify-content: center; align-items: center; padding: 20px; transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1); opacity: 0; transform: translateY(20px); }
+        .active { display: flex; opacity: 1; transform: translateY(0); }
+        .polaroid { background: white; padding: 15px 15px 40px 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); transform: rotate(-2deg); }
+        .btn-flower { transition: 0.3s; cursor: pointer; }
+        .btn-flower:hover { transform: scale(1.1) rotate(5deg); }
+    </style>
+</head>
+<body class="pink-bg">
+
+    <!-- Slide 0: Instruksi Lucu (Awal banget) -->
+    <div id="slide0" class="slide active">
+        <h1 class="text-2xl font-script text-pink-500 mb-6">Wait, stop bentar! ✋</h1>
+        <p class="text-lg text-center px-6 mb-8">
+            Sebelum lanjut, wajib klik tombol <b>Play</b> di bawah supaya vibes-nya dapet. <br>
+            Kalo nggak di-play, nanti Nadin Amizah-nya sedih! 😭
+        </p>
+        <div class="mb-8">
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3FPlY1uqTe1oFfIgI0BnoA?utm_source=generator" width="300" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <button onclick="nextSlide(1)" class="bg-pink-300 text-white px-8 py-3 rounded-full hover:bg-pink-400 transition shadow-lg">
+            Udah di-play kok! ✨
+        </button>
+    </div>
+
+    <!-- Slide 1: Opening -->
+    <div id="slide1" class="slide">
+        <h1 class="text-3xl text-pink-500 font-script mb-8">Someone is turning 24 today... 🎀</h1>
+        <div onclick="nextSlide(2)" class="btn-flower text-8xl">🎁</div>
+        <p class="mt-4 italic">Klik kadonya, Ning!</p>
+    </div>
+
+    <!-- Slide 2: Foto -->
+    <div id="slide2" class="slide">
+        <div class="polaroid w-64">
+            <img src="https://i.ibb.co.com/zWDn7jRV/DSCF6006.jpg" alt="Ningsih" class="w-full h-64 object-cover">
+            <p class="mt-4 font-script text-xl text-center">Pretty. Kind. Chaotic.</p>
+        </div>
+        <p class="mt-6 font-bold">But always lovable 🌻</p>
+        <button onclick="nextSlide(3)" class="mt-8 bg-white px-6 py-2 rounded-full shadow-md">Next</button>
+    </div>
+
+    <!-- Slide 3: Memories -->
+    <div id="slide3" class="slide">
+        <h2 class="text-2xl mb-8">24 looks beautiful on you. Klik icon-nya!</h2>
+        <div class="flex gap-4">
+            <div onclick="alert('Happy level-up day!')" class="cursor-pointer text-4xl hover:scale-125 transition">💌</div>
+            <div onclick="alert('Wishing you the best!')" class="cursor-pointer text-4xl hover:scale-125 transition">✨</div>
+            <div onclick="alert('Always happy!')" class="cursor-pointer text-4xl hover:scale-125 transition">🌸</div>
+        </div>
+        <button onclick="nextSlide(4)" class="mt-12 text-sm underline">Baca doa selanjutnya</button>
+    </div>
+
+    <!-- Slide 4: Message -->
+    <div id="slide4" class="slide text-center px-10">
+        <div class="max-w-md bg-white/60 p-8 rounded-3xl backdrop-blur-sm border border-white">
+            <p class="leading-relaxed text-lg">
+                "Barakallah fii umrik, Ning! Selamat menuju seperempat abad di tahun depan! Semoga panjang umur dan selalu diberkahi setiap harinya. Semoga lancar S2-nya dan selalu diberi kebahagiaan. Aamiin."
+            </p>
+        </div>
+        <button onclick="nextSlide(5)" class="mt-8 bg-pink-300 text-white px-8 py-3 rounded-full hover:bg-pink-400">Tiup Lilin 🎂</button>
+    </div>
+
+    <!-- Slide 5: Finale -->
+    <div id="slide5" class="slide">
+        <div id="cake" class="text-9xl cursor-pointer" onclick="blowCandle()">🎂</div>
+        <h2 id="finalText" class="text-3xl font-script mt-6 opacity-0 transition-opacity duration-1000">Happy 24th Birthday, Ningsih ✨</h2>
+    </div>
+
+    <script>
+        function nextSlide(n) {
+            document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+            setTimeout(() => {
+                document.querySelectorAll('.slide').forEach(s => s.style.display = 'none');
+                const next = document.getElementById('slide' + n);
+                next.style.display = 'flex';
+                setTimeout(() => next.classList.add('active'), 50);
+            }, 500);
+        }
+        function blowCandle() {
+            document.getElementById('cake').innerHTML = '🍰';
+            document.getElementById('finalText').classList.add('opacity-100');
+        }
+    </script>
+</body>
+</html>
